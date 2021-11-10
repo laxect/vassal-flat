@@ -1,4 +1,4 @@
-app-id: org.omegat.OmegaT
+app-id: moe.gyara.Vassal
 runtime: org.freedesktop.Platform
 runtime-version: '21.08'
 sdk: org.freedesktop.Sdk
