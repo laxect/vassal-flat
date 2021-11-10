@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Game engine for building and playing online adaptations of board games and card games.
+Terminal=false
+Name=Vassal
+Exec=run.sh
+Type=Application
+Icon=moe.gyara.Vassal

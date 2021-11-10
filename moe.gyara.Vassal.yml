@@ -1,0 +1,54 @@
+app-id: org.omegat.OmegaT
+runtime: org.freedesktop.Platform
+runtime-version: '21.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk17
+
+command: run.sh
+finish-args:
+  - --filesystem=xdg-documents
+  - --socket=x11
+  - --share=ipc
+  - --share=network
+  - --persist=.VASSAL
+
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk17/install.sh
+
+  - name: vassal
+    sources:
+      - type: archive
+        url: https://github.com/vassalengine/vassal/releases/download/3.5.8/VASSAL-3.5.8-linux.tar.bz2 
+        md5sum: 
+        sha256: e54b76c55a69170764ae9d88527a981c22d6aad164a71d83cfd2f64e4cbe9b0f
+        dest: vassal
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/share/vassal
+      - mv vassal/* /app/share/vassal
+
+  - name: launcher
+    buildsystem: simple
+    sources:
+      - type: script
+        dest-filename: run.sh
+        commands:
+          - export PATH=$PATH:/app/jre/bin/
+          - cd /app/share/vassal && exec java -classpath lib/Vengine.jar VASSAL.launch.ModuleManager
+    build-commands:
+          - install -Dm755 run.sh /app/bin/run.sh
+
+  - name: desktop
+    sources:
+      - type: file
+        path: vassal.desktop
+      - type: file
+        path: VASSAL-256x256.png
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 VASSAL-256x256.png /app/share/icons/hicolor/scalable/apps/moe.gyara.Vassal.png
+      - install -Dm644 vassal.desktop /app/share/applications/moe.gyara.Vassal.desktop
