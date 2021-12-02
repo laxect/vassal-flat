@@ -23,9 +23,8 @@ modules:
   - name: vassal
     sources:
       - type: archive
-        url: https://github.com/vassalengine/vassal/releases/download/3.5.8/VASSAL-3.5.8-linux.tar.bz2 
-        md5sum: 
-        sha256: e54b76c55a69170764ae9d88527a981c22d6aad164a71d83cfd2f64e4cbe9b0f
+        url: https://github.com/vassalengine/vassal/releases/download/3.6.0/VASSAL-3.6.0-linux.tar.bz2 
+        sha256: 074ac25e28ad9c5a32908de729e8cef8d7cbebc39bdacb69d1a9d6b77f868efd
         dest: vassal
     buildsystem: simple
     build-commands:
