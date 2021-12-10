@@ -23,8 +23,8 @@ modules:
   - name: vassal
     sources:
       - type: archive
-        url: https://github.com/vassalengine/vassal/releases/download/3.6.1/VASSAL-3.6.1-linux.tar.bz2 
-        sha512: 72c3141c127b264ddb6cd3d8ba3fc77217d5ea7b72a819440d5320322b6db2e66e410938414207485b9a5dacbf93a055532fe481e1aef38b9c4714202d8f70b3
+        url: https://github.com/vassalengine/vassal/releases/download/3.6.2/VASSAL-3.6.2-linux.tar.bz2 
+        sha512: caf43732c1a783efd419030d0b1137057930b35648a096fda833ca6a9d06dd91c6066d0c82ac2edce37dd410847036fea138a5ebadefb2e6e825c7c6d46880cb
         dest: vassal
     buildsystem: simple
     build-commands:
